@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BeautySystem.Models.Service>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration)
+        </td>
+        <td>
+            @*<img alt="@item.Photo" src="@item.Photo" width="100" height="50" />*@
+            
+            <img src="~/Images/@item.Photo" style="height:200px;width:200px;" />
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ServiceId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ServiceId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ServiceId })
+        </td>
+    </tr>
+}
+
+</table>

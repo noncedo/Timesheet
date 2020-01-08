@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BeautySystem.Models.EmployeeProject>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Time sheet</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <p>
+        @ViewBag.Hours
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Project.ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoursWorked)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoursWorked)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeProjectId,@class="glyphicon glyphicon-edit" })
+
+            </td>
+        </tr>
+    }
+
+    </table>
+

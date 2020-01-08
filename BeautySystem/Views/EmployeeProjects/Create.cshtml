@@ -1,0 +1,83 @@
+﻿@model BeautySystem.Models.EmployeeProject
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<br/>
+<br/>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Record a Timesheet</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("Employee")
+                    <div class="col-md-10">
+                        @Html.DropDownList("EmployeeId", null, "Select Employee", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.Label("Project")
+                    <div class="col-md-10">
+                        @Html.DropDownList("ProjectId", null, "Select Project", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProjectId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4">
+            <div class="form-group">
+                @Html.Label("Client")
+                <div class="col-md-10">
+                    @Html.DropDownList("ClientId", null, "Select Client", htmlAttributes: new {@class = "form-control"})
+                    @Html.ValidationMessageFor(model => model.ClientId, "", new {@class = "text-danger"})
+                </div>
+            </div>
+            </div>
+
+                <div class="form-group">
+                @Html.Label("Hours Worked")
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HoursWorked, new {htmlAttributes = new {@class = "form-control"}})
+                    @Html.ValidationMessageFor(model => model.HoursWorked, "", new {@class = "text-danger"})
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Date")
+            <div class="col-md-10">
+                @Html.EditorFor(model=>model.Date, new { htmlAttributes = new {@class="form-control",@type="date"}})
+                @Html.ValidationMessageFor(model => model.ClientId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

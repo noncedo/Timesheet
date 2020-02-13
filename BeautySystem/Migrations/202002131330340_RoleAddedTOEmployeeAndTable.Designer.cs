@@ -7,13 +7,13 @@ namespace BeautySystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Added_Employee_Projects : IMigrationMetadata
+    public sealed partial class RoleAddedTOEmployeeAndTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Added_Employee_Projects));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RoleAddedTOEmployeeAndTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912061434435_Added_Employee_Projects"; }
+            get { return "202002131330340_RoleAddedTOEmployeeAndTable"; }
         }
         
         string IMigrationMetadata.Source

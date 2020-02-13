@@ -42,6 +42,7 @@ namespace BeautySystem.Models
         public DbSet<Event> Events { get; set; }
 
         public DbSet<Project> Projects { get; set; }
+        public DbSet<EmployeeRole> EmployeeRoles { get; set; }
         public DbSet<EmployeeProject> EmployeeProjects { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace BeautySystem.Controllers
     public class ProjectsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+       // [CustomAuthenticationFilter]
         // GET: Projects
         public async Task<ActionResult> Index()
         {
@@ -39,6 +39,7 @@ namespace BeautySystem.Controllers
         // GET: Projects/Create
         public ActionResult Create()
         {
+            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name");
             return View();
         }
 
@@ -47,8 +48,9 @@ namespace BeautySystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ProjectId,ProjectName,ProjectDesc")] Project project)
+        public async Task<ActionResult> Create([Bind(Include = "ProjectId,EmployeeId,ClientId,ProjectName,ProjectDesc")] Project project)
         {
+           //Session[""] = 
             if (ModelState.IsValid)
             {
                 db.Projects.Add(project);

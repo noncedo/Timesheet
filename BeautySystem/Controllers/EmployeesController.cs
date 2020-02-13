@@ -15,6 +15,7 @@ namespace BeautySystem.Controllers
     
     public class EmployeesController : Controller
     {
+        //[CustomAuthenticationFilter]
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Employees
@@ -41,12 +42,13 @@ namespace BeautySystem.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
+            ViewBag.Role = new SelectList(db.EmployeeRoles, "Id", "Name");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "EmployeeId,Name,Surname,ContactNumber,Address")] Employee employee)
+        public async Task<ActionResult> Create([Bind(Include = "EmployeeId,ClientId,Name,EmpRoleId,Surname,ContactNumber,Address")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -65,6 +67,8 @@ namespace BeautySystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
+            ViewBag.Role = new SelectList(db.EmployeeRoles, "Id", "Name");
             Employee employee = await db.Employees.FindAsync(id);
             if (employee == null)
             {
@@ -75,7 +79,7 @@ namespace BeautySystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "EmployeeId,Name,Surname,ContactNumber,Address")] Employee employee)
+        public async Task<ActionResult> Edit([Bind(Include = "EmployeeId,EmpRoleId,Name,Surname,ContactNumber,Address")] Employee employee)
         {
             if (ModelState.IsValid)
             {

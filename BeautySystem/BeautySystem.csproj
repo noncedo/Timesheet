@@ -198,16 +198,30 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912061434435_Added_Employee_Projects.cs" />
-    <Compile Include="Migrations\201912061434435_Added_Employee_Projects.Designer.cs">
-      <DependentUpon>201912061434435_Added_Employee_Projects.cs</DependentUpon>
+    <Compile Include="Migrations\202001310651076_InitialMigration.cs" />
+    <Compile Include="Migrations\202001310651076_InitialMigration.Designer.cs">
+      <DependentUpon>202001310651076_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002030843447_ForeignKeyToProjectIdToEMP.cs" />
+    <Compile Include="Migrations\202002030843447_ForeignKeyToProjectIdToEMP.Designer.cs">
+      <DependentUpon>202002030843447_ForeignKeyToProjectIdToEMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002030850188_EmailToEmployee.cs" />
+    <Compile Include="Migrations\202002030850188_EmailToEmployee.Designer.cs">
+      <DependentUpon>202002030850188_EmailToEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002131330340_RoleAddedTOEmployeeAndTable.cs" />
+    <Compile Include="Migrations\202002131330340_RoleAddedTOEmployeeAndTable.Designer.cs">
+      <DependentUpon>202002131330340_RoleAddedTOEmployeeAndTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\CustomAuthenticationFilter.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeProject.cs" />
+    <Compile Include="Models\EmployeeRole.cs" />
     <Compile Include="Models\EmployeeSkill.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -449,7 +463,9 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -514,6 +530,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -532,8 +549,17 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912061434435_Added_Employee_Projects.resx">
-      <DependentUpon>201912061434435_Added_Employee_Projects.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001310651076_InitialMigration.resx">
+      <DependentUpon>202001310651076_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002030843447_ForeignKeyToProjectIdToEMP.resx">
+      <DependentUpon>202002030843447_ForeignKeyToProjectIdToEMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002030850188_EmailToEmployee.resx">
+      <DependentUpon>202002030850188_EmailToEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002131330340_RoleAddedTOEmployeeAndTable.resx">
+      <DependentUpon>202002131330340_RoleAddedTOEmployeeAndTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

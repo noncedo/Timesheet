@@ -15,9 +15,18 @@ namespace BeautySystem.Models
         public string Surname { get; set; }
         [Display(Name = "Contact Number")]
         public string ContactNumber { get; set; }
+
+        public string Email { get; set; }
         public string Address { get; set; }
+        [StringLength(13)]
+        public string IdNumber { get; set; }
 
         [NotMapped]
         public string FullName { get { return string.Format("{0} {1}", Name, Surname); } }
+
+        [Display(Name="Role")]
+        public int EmpRoleId { get; set; }
+        public virtual EmployeeRole EmployeeRole { get; set; }
+
     }
 }

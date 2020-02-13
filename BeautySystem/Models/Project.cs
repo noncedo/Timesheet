@@ -14,5 +14,9 @@ namespace BeautySystem.Models
         public string ProjectName { get; set; }
         [Display(Name = "Project Description")]
         public string ProjectDesc { get; set; }
+        [Display(Name = "Client")]
+        public int ClientId { get; set; }
+
+        public virtual Client Client { get; set; }
     }
 }

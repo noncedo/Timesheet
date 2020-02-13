@@ -14,7 +14,7 @@ namespace BeautySystem.Controllers
     public class ClientsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        //[CustomAuthenticationFilter]
         // GET: Clients
         public async Task<ActionResult> Index()
         {

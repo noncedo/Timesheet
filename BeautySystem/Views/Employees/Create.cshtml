@@ -1,12 +1,9 @@
 ﻿@model BeautySystem.Models.Employee
-
 @{
     ViewBag.Title = "Create";
 }
-
 <br/>
 <br/>
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -16,9 +13,11 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 		 <div class="form-group">
+		 <div class="control-label col-md-2">
                     @Html.Label("Role")
+					</div>
                     <div class="col-md-10">					
-                       @Html.DropDownList("Id", ViewBag.Role as SelectList, "Select Role", new { @class = "form-control" })
+                       @Html.DropDownList("EmpRoleId", ViewBag.Role as SelectList, "Select Role", new { @class = "form-control" })
                          @Html.ValidationMessageFor(model => model.EmpRoleId, "", new { @class = "text-danger" })
                     </div>
                 </div>

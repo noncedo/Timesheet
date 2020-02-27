@@ -31,9 +31,6 @@ namespace BeautySystem.Controllers
             sched.DataAction = "Data";
             //sched.DataAction = context.RouteUrl(new {action = "Data", controller = "Appointment"});
 
-
-
-
             return View(sched);
             //return new Dps().CallBack(this);
         }

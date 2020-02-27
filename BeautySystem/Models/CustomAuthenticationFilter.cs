@@ -12,7 +12,7 @@ namespace BeautySystem.Models
     {
         public void OnAuthentication(AuthenticationContext filterContext)
         {
-            if (string.IsNullOrEmpty(Convert.ToString(filterContext.HttpContext.Session["Email"])))
+            if (string.IsNullOrEmpty(Convert.ToString(filterContext.HttpContext.Session["UserId"])))
             {
                 filterContext.Result = new HttpUnauthorizedResult();
             }

@@ -16,7 +16,7 @@ namespace BeautySystem.Controllers
     public class EmployeeProjectsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        [CustomAuthenticationFilter]
 
         //public string CalculateProjectHours()
         //{
@@ -118,7 +118,7 @@ namespace BeautySystem.Controllers
         public ActionResult Create()
         {
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name");
-            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Name");
+            //ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Name");
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "ProjectName");
             return View();
         }
@@ -130,15 +130,19 @@ namespace BeautySystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "EmployeeProjectId,EmployeeId,ProjectId,ClientId,HoursWorked,Date")] EmployeeProject employeeProject)
         {
+            var id = Convert.ToInt32(Session["UserId"]);
+            ViewBag.Name = id;
             if (ModelState.IsValid)
             {
+                employeeProject.EmployeeId = id;
+
                 db.EmployeeProjects.Add(employeeProject);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", employeeProject.ClientId);
-            ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Name", employeeProject.EmployeeId);
+            //ViewBag.EmployeeId = new SelectList(db.Employees, "EmployeeId", "Name", employeeProject.EmployeeId);
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "ProjectName", employeeProject.ProjectId);
             return View(employeeProject);
         }

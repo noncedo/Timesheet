@@ -50,6 +50,7 @@ namespace BeautySystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "EmployeeId,ClientId,Name,EmpRoleId,Surname,ContactNumber,Address")] Employee employee)
         {
+            ViewBag.Name = employee.Name;
             if (ModelState.IsValid)
             {
                 db.Employees.Add(employee);

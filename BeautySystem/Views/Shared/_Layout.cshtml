@@ -8,39 +8,33 @@
     @Scripts.Render("~/bundles/modernizr")
 
 
-    <style>
+     <style>
         .header {
             background: #003267;
             background: linear-gradient(to right, #011329 0%,#00639e 44%,#011329 100%);
-            padding: 20px 10px;
+             padding: 20px 10px; 
             color: white !important;
-            /*box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);*/
+            
         }
         .nav-link-color {
             color: #ffffff !important;
         }
+    
     </style>
-
-    @*navbar-dark bg-primary*@
 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg header nav-link-color">
+
     <a class="navbar-brand" href="@Url.Action("Index","Home")">My Appointments</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+        <ul class="navbar-nav mr-autok">
+           <li class="nav-item active">
                 <a class="nav-link" href="@Url.Action("Index","Home")">Home <span class="sr-only">(current)</span></a>
             </li>
-            @*<li class="nav-item">
-            <a class="nav-link" href="@Url.Action("Index","Services")">Services</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="@Url.Action("Index","Appointments")">Booking</a>
-        </li>*@
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index","Employees")">Employees</a>
             </li>
@@ -57,12 +51,9 @@
                 <a class="nav-link" href="@Url.Action("Index","EmployeeProjects")">Time Sheet</a>
             </li>
         </ul>
-        @*<form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>*@
     </div>
-</nav>
+
+</nav> 
     <div class="container body-content">
         @RenderBody()
         <hr />

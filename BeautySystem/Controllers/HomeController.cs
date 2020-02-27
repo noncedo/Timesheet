@@ -47,7 +47,8 @@ namespace BeautySystem.Controllers
                 {
                     Session["Email"] = user.Email;
                     Session["IdNumber"] = user.IdNumber;
-                    return RedirectToAction("Index", "Home");
+                    Session["UserId"] = user.EmployeeId;
+                    return RedirectToAction("Create", "EmployeeProjects");
                 }
                 else
                 {
